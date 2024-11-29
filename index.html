@@ -44,15 +44,12 @@
         <p>Claude Debussy</p>
       </div>
       <div class="controls">
-        <button id="playPauseBtn">▶</button>
-        <input id="progressBar" type="range" value="0" min="0" max="100">
-        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+        <button id="play-pause"><span>&#9658;</span></button>
+        <input type="range" id="progress" value="0" min="0" max="100">
+        <span id="current-time">0:00</span> / <span id="duration">0:00</span>
       </div>
     </div>
-    <audio id="audioPlayer">
-      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <audio id="audio" src="https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/The%20Evil%20Within%20-%20Clair%20De%20Lune.wav?v=1732850380206"></audio>
   </footer>
   <script src="script.js"></script>
 </body>
