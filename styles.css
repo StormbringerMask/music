@@ -29,9 +29,7 @@ section {
 
 footer {
   background-color: #1c1c1c;
-  color: #eaeaea;
   padding: 1rem;
-  text-align: center;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -42,14 +40,15 @@ footer {
 .music-player {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 500px;
+  gap: 1rem;
+  max-width: 600px;
   margin: 0 auto;
+  color: #eaeaea;
 }
 
 .music-player .cover {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 8px;
   background: #333;
   display: flex;
@@ -57,13 +56,15 @@ footer {
   justify-content: center;
   color: #eaeaea;
   font-size: 0.8rem;
-  margin-right: 1rem;
+}
+
+.music-player .info {
+  flex: 1;
 }
 
 .music-player .info h3 {
   margin: 0;
   font-size: 1rem;
-  color: #eaeaea;
 }
 
 .music-player .info p {
@@ -78,7 +79,7 @@ footer {
   gap: 1rem;
 }
 
-#playPauseBtn {
+button {
   background: #1db954;
   border: none;
   color: white;
@@ -88,24 +89,28 @@ footer {
   cursor: pointer;
 }
 
-#playPauseBtn:hover {
+button:hover {
   background: #1ed760;
 }
 
-#progressBar {
+input[type="range"] {
   flex: 1;
+  -webkit-appearance: none;
+  background: #333;
   height: 5px;
   border-radius: 5px;
-  background: #444;
-  appearance: none;
   cursor: pointer;
 }
 
-#progressBar::-webkit-slider-thumb {
-  appearance: none;
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #1db954;
   cursor: pointer;
+}
+
+#current-time, #duration {
+  font-size: 0.8rem;
 }
