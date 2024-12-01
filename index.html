@@ -40,17 +40,21 @@
     <div class="music-player">
       <div class="cover">CD</div>
       <div class="info">
-        <h3>Clair de Lune</h3>
-        <p>Claude Debussy</p>
+        <h3 id="song-title">Clair de Lune</h3>
+        <p id="artist">Claude Debussy</p>
       </div>
       <div class="controls">
         <button id="play-pause"><span>&#9658;</span></button>
+        <button id="next-song">&#9654;&#9654;</button>
         <input type="range" id="progress" value="0" min="0" max="100">
         <span id="current-time">0:00</span> / <span id="duration">0:00</span>
       </div>
     </div>
-    <audio id="audio" src="https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/The%20Evil%20Within%20-%20Clair%20De%20Lune.wav?v=1732850380206"></audio>
+    <audio id="audio" autoplay>
+      <source id="audio-source" src="clairdelune.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
   </footer>
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
