@@ -83,15 +83,20 @@ button {
   background: #1db954;
   border: none;
   color: white;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 }
 
 button:hover {
   background: #1ed760;
 }
+
 
 input[type="range"] {
   flex: 1;
