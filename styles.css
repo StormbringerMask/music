@@ -83,18 +83,22 @@ button {
   background: #1db954;
   border: none;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   font-size: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 button:hover {
   background: #1ed760;
+}
+
+.controls button#next-song {
+  font-size: 1.2rem;
 }
 
 
