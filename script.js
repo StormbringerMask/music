@@ -1,16 +1,42 @@
 const audio = document.getElementById('audio');
 const playPauseButton = document.getElementById('play-pause');
+const nextSongButton = document.getElementById('next-song');
 const progressBar = document.getElementById('progress');
 const currentTimeElement = document.getElementById('current-time');
 const durationElement = document.getElementById('duration');
+const songTitle = document.getElementById('song-title');
+const artist = document.getElementById('artist');
+
+const playlist = [
+  {
+    title: "Clair de Lune",
+    artist: "Claude Debussy",
+    src: "https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/The%20Evil%20Within%20-%20Clair%20De%20Lune.wav?v=1732850380206",
+  },
+  {
+    title: "ETA",
+    artist: "NewJeans",
+    src: "https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/ETA.wav?v=1733025187268",
+  },
+];
+
+let currentSongIndex = 0;
+
+function loadSong(index) {
+  const song = playlist[index];
+  audio.src = song.src;
+  songTitle.textContent = song.title;
+  artist.textContent = song.artist;
+  audio.play();
+}
 
 playPauseButton.addEventListener('click', () => {
   if (audio.paused) {
     audio.play();
-    playPauseButton.innerHTML = '<span>&#10074;&#10074;</span>'; // Pause icon
+    playPauseButton.innerHTML = '<span>&#10074;&#10074;</span>';
   } else {
     audio.pause();
-    playPauseButton.innerHTML = '<span>&#9658;</span>'; // Play icon
+    playPauseButton.innerHTML = '<span>&#9658;</span>';
   }
 });
 
@@ -27,16 +53,20 @@ progressBar.addEventListener('input', () => {
   audio.currentTime = (progressBar.value / 100) * duration;
 });
 
+nextSongButton.addEventListener('click', () => {
+  currentSongIndex = (currentSongIndex + 1) % playlist.length;
+  loadSong(currentSongIndex);
+});
+
+audio.addEventListener('ended', () => {
+  currentSongIndex = (currentSongIndex + 1) % playlist.length;
+  loadSong(currentSongIndex);
+});
+
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
   return `${minutes}:${secs}`;
 }
 
-audio.addEventListener('loadedmetadata', () => {
-  durationElement.textContent = formatTime(audio.duration);
-});
-
-audio.addEventListener('error', (e) => {
-  console.error('Error loading audio:', e);
-});
+loadSong(currentSongIndex);
