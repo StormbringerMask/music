@@ -6,6 +6,13 @@ const currentTimeElement = document.getElementById('current-time');
 const durationElement = document.getElementById('duration');
 const songTitle = document.getElementById('song-title');
 const artist = document.getElementById('artist');
+const slides = document.querySelectorAll('.slide');
+
+slides.forEach((slide, index) => {
+  slide.addEventListener('click', () => {
+    slide.classList.add('active');
+  });
+});
 
 const playlist = [
   { title: "Clair de Lune", artist: "Claude Debussy", src: "https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/The%20Evil%20Within%20-%20Clair%20De%20Lune.wav?v=1732850380206" },
@@ -44,23 +51,4 @@ audio.addEventListener('timeupdate', () => {
 
 progressBar.addEventListener('input', () => {
   const duration = audio.duration;
-  audio.currentTime = (progressBar.value / 100) * duration;
-});
-
-nextSongButton.addEventListener('click', () => {
-  currentSongIndex = (currentSongIndex + 1) % playlist.length;
-  loadSong(currentSongIndex);
-});
-
-audio.addEventListener('ended', () => {
-  currentSongIndex = (currentSongIndex + 1) % playlist.length;
-  loadSong(currentSongIndex);
-});
-
-function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
-  return `${minutes}:${secs}`;
-}
-
-loadSong(currentSongIndex);
+  audio.currentTime =
