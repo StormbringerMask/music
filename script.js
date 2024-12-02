@@ -8,7 +8,7 @@ const songTitle = document.getElementById('song-title');
 const artist = document.getElementById('artist');
 
 const playlist = [
-  { title: "Clair de Lune", artist: "Claude Debussy", src: "clairdelune.wav" },
+  { title: "Clair de Lune", artist: "Claude Debussy", src: "https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/The%20Evil%20Within%20-%20Clair%20De%20Lune.wav?v=1732850380206" },
   { title: "ETA", artist: "NewJeans", src: "https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/ETA.wav?v=1733025187268" },
   { title: "I'll Like You", artist: "ILLIT", src: "https://cdn.glitch.me/aa1c10f1-1ca3-4e5b-87cc-1bcc94173e1a/I%E2%80%99ll%20Like%20You.wav?v=1733097740905" },
 ];
