@@ -5,27 +5,43 @@ body {
   padding: 0;
   background-color: #121212;
   color: #eaeaea;
+  overflow: hidden;
 }
 
 header {
-  background-color: #1c1c1c;
+  background-color: #121212;
   color: #eaeaea;
   padding: 1.5rem 0;
   text-align: center;
 }
 
+header h1 {
+  position: relative;
+  z-index: 10;
+}
+
 main {
   padding: 2rem;
   margin-bottom: 150px;
+  position: relative;
+  overflow: hidden;
 }
 
-section {
+.slide {
+  opacity: 0;
+  transform: translateX(-100%);
   margin-bottom: 2rem;
   padding: 1.5rem;
   background: #242424;
   color: #eaeaea;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 footer {
@@ -87,18 +103,17 @@ button {
   color: white;
   width: 50px;
   height: 50px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 button:hover {
   background: #1ed760;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 1);
 }
 
 input[type="range"] {
@@ -108,7 +123,6 @@ input[type="range"] {
   height: 5px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 input[type="range"]::-webkit-slider-thumb {
